@@ -1,0 +1,259 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D2A35BEF16D704FD00F2894C /* genetics.c in Sources */ = {isa = PBXBuildFile; fileRef = D2A35BEE16D704FD00F2894C /* genetics.c */; };
+		D2A35BF316D708A100F2894C /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = D2A35BF216D708A100F2894C /* error.c */; };
+		D2DC451D16D6F3110059552A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = D2DC451C16D6F3110059552A /* main.c */; };
+		D2DC451F16D6F3110059552A /* DNAViewer.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = D2DC451E16D6F3110059552A /* DNAViewer.1 */; };
+		D2DC452F16D6F6650059552A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2DC452E16D6F6650059552A /* OpenGL.framework */; };
+		D2DC453116D6F66C0059552A /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2DC453016D6F66C0059552A /* GLUT.framework */; };
+		D2DC453616D6FEC80059552A /* graphics.c in Sources */ = {isa = PBXBuildFile; fileRef = D2DC453516D6FEC80059552A /* graphics.c */; };
+		D2DC453916D6FF750059552A /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = D2DC453816D6FF750059552A /* debug.c */; };
+		D2DC453B16D703350059552A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2DC453A16D703350059552A /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D2DC451616D6F3110059552A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				D2DC451F16D6F3110059552A /* DNAViewer.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D2A35BEC16D704EC00F2894C /* genetics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = genetics.h; sourceTree = "<group>"; };
+		D2A35BEE16D704FD00F2894C /* genetics.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = genetics.c; sourceTree = "<group>"; };
+		D2A35BF116D7060B00F2894C /* dna_viewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dna_viewer.h; sourceTree = "<group>"; };
+		D2A35BF216D708A100F2894C /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = error.c; sourceTree = "<group>"; };
+		D2A35BF416D7090900F2894C /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = error.h; sourceTree = "<group>"; };
+		D2A35BF516D709E300F2894C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		D2DC451816D6F3110059552A /* DNAViewer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DNAViewer; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2DC451C16D6F3110059552A /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		D2DC451E16D6F3110059552A /* DNAViewer.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DNAViewer.1; sourceTree = "<group>"; };
+		D2DC452E16D6F6650059552A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		D2DC453016D6F66C0059552A /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		D2DC453416D6FE970059552A /* graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphics.h; sourceTree = "<group>"; };
+		D2DC453516D6FEC80059552A /* graphics.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = graphics.c; sourceTree = "<group>"; };
+		D2DC453716D6FF630059552A /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		D2DC453816D6FF750059552A /* debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = debug.c; sourceTree = "<group>"; };
+		D2DC453A16D703350059552A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2DC451516D6F3110059552A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2DC453B16D703350059552A /* Cocoa.framework in Frameworks */,
+				D2DC453116D6F66C0059552A /* GLUT.framework in Frameworks */,
+				D2DC452F16D6F6650059552A /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2DC450D16D6F3110059552A = {
+			isa = PBXGroup;
+			children = (
+				D2A35BF516D709E300F2894C /* README.md */,
+				D2DC453A16D703350059552A /* Cocoa.framework */,
+				D2DC453016D6F66C0059552A /* GLUT.framework */,
+				D2DC452E16D6F6650059552A /* OpenGL.framework */,
+				D2DC451B16D6F3110059552A /* DNAViewer */,
+				D2DC451916D6F3110059552A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2DC451916D6F3110059552A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2DC451816D6F3110059552A /* DNAViewer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2DC451B16D6F3110059552A /* DNAViewer */ = {
+			isa = PBXGroup;
+			children = (
+				D2DC453316D6FE840059552A /* headers */,
+				D2DC451C16D6F3110059552A /* main.c */,
+				D2DC451E16D6F3110059552A /* DNAViewer.1 */,
+				D2DC453516D6FEC80059552A /* graphics.c */,
+				D2DC453816D6FF750059552A /* debug.c */,
+				D2A35BEE16D704FD00F2894C /* genetics.c */,
+				D2A35BF216D708A100F2894C /* error.c */,
+			);
+			path = DNAViewer;
+			sourceTree = "<group>";
+		};
+		D2DC453316D6FE840059552A /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				D2DC453416D6FE970059552A /* graphics.h */,
+				D2DC453716D6FF630059552A /* debug.h */,
+				D2A35BEC16D704EC00F2894C /* genetics.h */,
+				D2A35BF116D7060B00F2894C /* dna_viewer.h */,
+				D2A35BF416D7090900F2894C /* error.h */,
+			);
+			name = headers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2DC451716D6F3110059552A /* DNAViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2DC452216D6F3110059552A /* Build configuration list for PBXNativeTarget "DNAViewer" */;
+			buildPhases = (
+				D2DC451416D6F3110059552A /* Sources */,
+				D2DC451516D6F3110059552A /* Frameworks */,
+				D2DC451616D6F3110059552A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DNAViewer;
+			productName = DNAViewer;
+			productReference = D2DC451816D6F3110059552A /* DNAViewer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2DC450F16D6F3110059552A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = D2DC451216D6F3110059552A /* Build configuration list for PBXProject "DNAViewer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D2DC450D16D6F3110059552A;
+			productRefGroup = D2DC451916D6F3110059552A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2DC451716D6F3110059552A /* DNAViewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2DC451416D6F3110059552A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2DC451D16D6F3110059552A /* main.c in Sources */,
+				D2DC453616D6FEC80059552A /* graphics.c in Sources */,
+				D2DC453916D6FF750059552A /* debug.c in Sources */,
+				D2A35BEF16D704FD00F2894C /* genetics.c in Sources */,
+				D2A35BF316D708A100F2894C /* error.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D2DC452016D6F3110059552A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D2DC452116D6F3110059552A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D2DC452316D6F3110059552A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D2DC452416D6F3110059552A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2DC451216D6F3110059552A /* Build configuration list for PBXProject "DNAViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2DC452016D6F3110059552A /* Debug */,
+				D2DC452116D6F3110059552A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2DC452216D6F3110059552A /* Build configuration list for PBXNativeTarget "DNAViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2DC452316D6F3110059552A /* Debug */,
+				D2DC452416D6F3110059552A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D2DC450F16D6F3110059552A /* Project object */;
+}
