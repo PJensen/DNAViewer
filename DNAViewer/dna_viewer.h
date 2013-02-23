@@ -27,6 +27,7 @@ struct DNAViewerT {
     char **argv;
     int argc;
     unsigned char* geneticData;
+    unsigned char* geneticDataMatchBuffer;
     size_t geneticDataSize;
     char fileName[255];
 };
