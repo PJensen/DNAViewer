@@ -15,6 +15,8 @@
  */
 void graphics_display()
 {
+    
+    
 	// Clear all pixels
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1.0, 1.0, 1.0);

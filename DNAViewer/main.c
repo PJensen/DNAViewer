@@ -13,6 +13,7 @@
 #include <signal.h>
 
 #include "graphics.h"
+#include "genetics.h"
 #include "debug.h"
 #include "dna_viewer.h"
 
@@ -20,8 +21,11 @@ void parseArgs(void);
 void initialize(int argc, char** argv);
 
 int main (int argc, char ** argv)
-{
+{    
     initialize(argc, argv);
+    
+    readGeneticData();
+    
     glutPostRedisplay();
     glutMainLoop();
 
@@ -36,6 +40,10 @@ int main (int argc, char ** argv)
  */
 void initialize(int argc, char** argv) 
 {
+    char cwdBuffer[256];
+    getcwd(cwdBuffer, 256);
+    fprintf(stderr, "Working directory: %s", cwdBuffer);
+    
     DNAViewer.argv = argv;
     DNAViewer.argc = argc;
     
@@ -61,6 +69,8 @@ void parseArgs()
 	for (index = 0; index < DNAViewer.argc; ++index)
 		if (strcmp(FILENAME_PARAM, DNAViewer.argv[index]) == 0) {
 			if (DNAViewer.argv[index + 1] != '\0')
+                // strcpy(DNAViewer.argv[index], DNAViewer.fileName);
+                // strcpy(DNAViewer.fileName, DNAViewer.argv[index + 1]);
 				strcat(DNAViewer.fileName, DNAViewer.argv[index + 1]);
 		} else if (strcmp(HELP_PARAM, DNAViewer.argv[index]) == 0) {
 			//(void) showHelp();

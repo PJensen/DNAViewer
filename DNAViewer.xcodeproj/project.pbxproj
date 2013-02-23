@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D29FBC5616D962F8002EEDB9 /* E.coli.dna in CopyFiles */ = {isa = PBXBuildFile; fileRef = D29FBC5516D962ED002EEDB9 /* E.coli.dna */; };
 		D2A35BEF16D704FD00F2894C /* genetics.c in Sources */ = {isa = PBXBuildFile; fileRef = D2A35BEE16D704FD00F2894C /* genetics.c */; };
 		D2A35BF316D708A100F2894C /* error.c in Sources */ = {isa = PBXBuildFile; fileRef = D2A35BF216D708A100F2894C /* error.c */; };
 		D2DC451D16D6F3110059552A /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = D2DC451C16D6F3110059552A /* main.c */; };
@@ -19,6 +20,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		D29FBC5316D962B0002EEDB9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				D29FBC5616D962F8002EEDB9 /* E.coli.dna in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D2DC451616D6F3110059552A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -32,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D29FBC5516D962ED002EEDB9 /* E.coli.dna */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E.coli.dna; sourceTree = "<group>"; };
 		D2A35BEC16D704EC00F2894C /* genetics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = genetics.h; sourceTree = "<group>"; };
 		D2A35BEE16D704FD00F2894C /* genetics.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = genetics.c; sourceTree = "<group>"; };
 		D2A35BF116D7060B00F2894C /* dna_viewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dna_viewer.h; sourceTree = "<group>"; };
@@ -67,6 +79,7 @@
 		D2DC450D16D6F3110059552A = {
 			isa = PBXGroup;
 			children = (
+				D29FBC5516D962ED002EEDB9 /* E.coli.dna */,
 				D2A35BF516D709E300F2894C /* README.md */,
 				D2DC453A16D703350059552A /* Cocoa.framework */,
 				D2DC453016D6F66C0059552A /* GLUT.framework */,
@@ -120,6 +133,7 @@
 				D2DC451416D6F3110059552A /* Sources */,
 				D2DC451516D6F3110059552A /* Frameworks */,
 				D2DC451616D6F3110059552A /* CopyFiles */,
+				D29FBC5316D962B0002EEDB9 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -178,7 +192,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = ansi;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -206,7 +220,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = ansi;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -12,8 +12,8 @@
 struct DNAViewerT {
     char **argv;
     int argc;
-    char *fileName;
     unsigned char* geneticData;
+    char fileName[255];
 };
 
 // extern struct DNAViewerT DNAViewer;
