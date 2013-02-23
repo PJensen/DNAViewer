@@ -6,15 +6,6 @@
 //  Copyright (c) 2013 PJensen. All rights reserved.
 //
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <signal.h>
-
-#include "graphics.h"
-#include "genetics.h"
-#include "debug.h"
 #include "dna_viewer.h"
 
 void parseArgs(void);
@@ -40,9 +31,12 @@ int main (int argc, char ** argv)
  */
 void initialize(int argc, char** argv) 
 {
+    
+#if DEBUG
     char cwdBuffer[256];
     getcwd(cwdBuffer, 256);
     fprintf(stderr, "Working directory: %s", cwdBuffer);
+#endif
     
     DNAViewer.argv = argv;
     DNAViewer.argc = argc;

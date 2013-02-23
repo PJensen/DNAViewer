@@ -6,7 +6,22 @@
 //  Copyright (c) 2013 PJensen. All rights reserved.
 //
 
-#include "graphics.h"
+#include "dna_viewer.h"
+
+struct CoordT {
+    int x;
+    int y;
+    int z;
+} Coord;
+
+void initCoord(void);
+
+void initCoord()
+{
+    Coord.x = 0;
+    Coord.y = 0;
+    Coord.z = 0;
+}
 
 /**
  * Function: graphics_display
@@ -15,18 +30,48 @@
  */
 void graphics_display()
 {
+    int index = 0x00;
     
+    initCoord();
     
-	// Clear all pixels
+    // Clear all pixels
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1.0, 1.0, 1.0);
     
+    glBegin(GL_LINE_STRIP);
+    
+    for (index = 0; index < DNAViewer.geneticDataSize; ++index)
+    {        
+        glVertex2f(Coord.x, Coord.y);
+        
+        switch (DNAViewer.geneticData[index]) 
+        {
+            case T:
+                Coord.x++;
+                break;
+            case C:
+                Coord.x--;
+                break;
+            case G:
+                Coord.y--;
+                break;
+            case A:
+                Coord.y++;
+                break;
+        }
+    }
+    
+    glEnd();
+
+    /*
     glBegin(GL_POLYGON);
     glVertex2f(0, 0);
     glVertex2f(0, 100);
     glVertex2f(100, 0);
     glVertex2f(100, 100);
-	glEnd();
+	glEnd();*/
+    
+    glRotated(1, 1.0, 1.0, 1.0);
     
 	// Flush
 	glFlush();

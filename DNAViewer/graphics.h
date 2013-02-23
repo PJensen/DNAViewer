@@ -9,17 +9,9 @@
 #ifndef DNAViewer_graphics_h
 #define DNAViewer_graphics_h
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdarg.h>
-
-#include "debug.h"
-#include "dna_viewer.h"
-
 #define GRAPHICS_WINDOW_TITLE "DNA Viewer"
 #define GRAPHICS_CLEAR_COLOR 0.0,0.0,0.0,0.0
-#define GRAPHICS_WINDOW_SIZE 500,500
+#define GRAPHICS_WINDOW_SIZE 1000,1000
 #define GRAPHICS_WINDOW_POSITION 100,100
 #define GRAPHICS_ORTHO -1000.0, 1000.0, -1000.0, 1000.0, -1.0, 1.0
 

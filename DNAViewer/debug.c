@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 PJensen. All rights reserved.
 //
 
-#include "debug.h"
+#include "dna_viewer.h"
 
 /**
  * Function: graphics_debug

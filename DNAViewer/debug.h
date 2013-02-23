@@ -9,10 +9,6 @@
 #ifndef DNAViewer_debug_h
 #define DNAViewer_debug_h
 
-#include <stdio.h>
-#include <string.h>
-#include <stdarg.h>
-
 void debug(const char* format, ...);
 
 #endif

@@ -9,14 +9,6 @@
 #ifndef DNAViewer_genetics_h
 #define DNAViewer_genetics_h
 
-#include <stdio.h>
-#include <math.h>
-#include <ctype.h>
-#include <stdlib.h>
-
-#include "dna_viewer.h"
-#include "error.h"
-
 #define T7Promoter "TAATACGACTCACTATAGG"
 #define SP6Promoter "ATTTAGGTGACACTATAG"
 #define T3Promoter "ATTAACCCTCACTAAAGGG"
@@ -27,6 +19,14 @@
 #define HIS6 "CATCATCACCATCACCAC"
 #define FLAGEpitope "GATTACAAGGATGACGACGATAAG"
 #define ExpressEpitope "GATCTGTACGACGATGACGATAAG"
+
+#define T   'T'
+#define C   'C'
+#define G   'G'
+#define A   'A'
+
+const u_int8_t isAminoAcid(unsigned char value);
+const long readGeneticData(void);
 
 /***
 CMV Promoter:
@@ -220,8 +220,5 @@ ACAAATTGATAAGTACTTGAAATCCAGCAAGTATATAGCATGGCCTTTGCAGGGCTGGCAAGCCACGTTTGGTGGTGGCG
 ACCATCCTCCAAAATCGGATCTGGTTCC
  
 */
-
-
-const long readGeneticData(void);
 
 #endif
