@@ -20,6 +20,9 @@ int main (int argc, char ** argv)
     glutPostRedisplay();
     glutMainLoop();
 
+    free(DNAViewer.geneticData);
+    free(DNAViewer.geneticDataMatchBuffer);
+    
     return EXIT_SUCCESS;
 }
 

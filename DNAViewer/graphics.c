@@ -16,6 +16,8 @@ struct CoordT {
 
 void initCoord(void);
 
+int slice = 0;
+
 void initCoord()
 {
     Coord.x = 0;
@@ -40,7 +42,7 @@ void graphics_display()
     
     glBegin(GL_LINE_STRIP);
     
-    for (index = 0; index < DNAViewer.geneticDataSize; ++index)
+    for (index = slice * 10000; index < (slice * 10000) + 10000; ++index)
     {        
         glVertex2f(Coord.x, Coord.y);
         
@@ -62,16 +64,6 @@ void graphics_display()
     }
     
     glEnd();
-
-    /*
-    glBegin(GL_POLYGON);
-    glVertex2f(0, 0);
-    glVertex2f(0, 100);
-    glVertex2f(100, 0);
-    glVertex2f(100, 100);
-	glEnd();*/
-    
-    glRotated(1, 1.0, 1.0, 1.0);
     
 	// Flush
 	glFlush();
@@ -97,12 +89,28 @@ void graphics_reshape(int w, int h)
  */
 void keyboard_func(unsigned char k, int x, int y)
 {
+    int bSlice = 0;
 	switch (k) {
+        case 'd':
+        case 'D':
+            if (slice + 1 < DNAViewer.geneticDataSize)
+                slice++;
+            bSlice = 1;
+            break;
+        case 'a':
+        case 'A':
+            if (slice > 0)
+                slice--;
+            bSlice = 1;
+            break;
 		default:
-            glutPostRedisplay();
 			break;
 	}
     
+    glutPostRedisplay();
+    
+    if (bSlice) 
+        debug("Showing slice: (%d)", slice);
 	debug("keyhit: (%d)", k);
 }
 

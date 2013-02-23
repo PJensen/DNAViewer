@@ -86,6 +86,7 @@ const long readGeneticData()
     
 	// Allocate a chunk of memory that is exactly the size of the input file.
 	DNAViewer.geneticData = (unsigned char*) malloc(sizeof(unsigned char) * tmpFileSize);
+    DNAViewer.geneticDataMatchBuffer = (unsigned char*) malloc(sizeof(unsigned char) * tmpFileSize);
     
 	//  Make sure we didn't run out of memory.
 	if (DNAViewer.geneticData == NULL)
