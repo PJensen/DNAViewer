@@ -25,8 +25,26 @@
 #define G   'G'
 #define A   'A'
 
-const u_int8_t isAminoAcid(unsigned char value);
+struct GeneticSequenceT {
+    char fileName[256];
+    char *sequence;
+};
+
+struct GeneticPatternT {
+    char patternName[64];
+    char matchAcids[1024];
+    int matchAcidLength;
+    unsigned int match;
+};
+
+void initPatterns(void);
+void patternDetectionFirstPass(void);
+void initPattern(const char* name, const char* sequence);
+void patternDetectionFirstPass();
+const u_int8_t isAminoAcid(char value);
 const long readGeneticData(void);
+void calculateMetrics(void);
+
 
 /***
 CMV Promoter:

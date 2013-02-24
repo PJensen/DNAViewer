@@ -22,6 +22,7 @@ int main (int argc, char ** argv)
 
     free(DNAViewer.geneticData);
     free(DNAViewer.geneticDataMatchBuffer);
+    free(DNAViewer.geneticPatterns);
     
     return EXIT_SUCCESS;
 }
@@ -45,6 +46,8 @@ void initialize(int argc, char** argv)
     DNAViewer.argc = argc;
     
     parseArgs();
+    initPatterns();
+    patternDetectionFirstPass();
     graphics_init();
 }
 
@@ -66,9 +69,7 @@ void parseArgs()
 	for (index = 0; index < DNAViewer.argc; ++index)
 		if (strcmp(FILENAME_PARAM, DNAViewer.argv[index]) == 0) {
 			if (DNAViewer.argv[index + 1] != '\0')
-                // strcpy(DNAViewer.argv[index], DNAViewer.fileName);
-                // strcpy(DNAViewer.fileName, DNAViewer.argv[index + 1]);
-				strcat(DNAViewer.fileName, DNAViewer.argv[index + 1]);
+				strcpy(DNAViewer.fileName, DNAViewer.argv[index + 1]);
 		} else if (strcmp(HELP_PARAM, DNAViewer.argv[index]) == 0) {
 			//(void) showHelp();
 			exit(EXIT_SUCCESS);

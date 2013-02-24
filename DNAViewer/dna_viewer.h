@@ -17,6 +17,7 @@
 #include <assert.h>
 #include <math.h>
 #include <stdarg.h>
+#include <stddef.h>
 
 #include "graphics.h"
 #include "genetics.h"
@@ -26,14 +27,17 @@
 struct DNAViewerT {
     char **argv;
     int argc;
-    unsigned char* geneticData;
-    unsigned char* geneticDataMatchBuffer;
+    char* geneticData;
+    char* geneticDataMatchBuffer;
     size_t geneticDataSize;
     char fileName[255];
+    int knownPatterns;
+    struct GeneticPatternT *geneticPatterns;
 };
 
-// extern struct DNAViewerT DNAViewer;
-
+;
 struct DNAViewerT DNAViewer;
+
+extern struct DNAViewerT DNAViewer;
 
 #endif

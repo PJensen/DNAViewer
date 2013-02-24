@@ -10,7 +10,58 @@
 
 const char AMINO_ACID[4] = {'T', 'C', 'G', 'A'};
 
-const u_int8_t isAminoAcid(unsigned char value) 
+/**
+ * Description: Initializes well known patterns 
+ * TODO: These should be read from a file or files.
+ */
+void initPatterns() 
+{
+    DNAViewer.knownPatterns = 1;
+    DNAViewer.geneticPatterns = malloc(sizeof(struct GeneticPatternT) * DNAViewer.knownPatterns);
+    if (DNAViewer.geneticPatterns == NULL)
+        doError("Out of memory.");
+    
+    initPattern("HIS6", HIS6);
+    initPattern("T7Promoter", T7Promoter);
+    initPattern("SP6Promoter", SP6Promoter);
+    initPattern("T3Promoter", T3Promoter);
+    
+    initPattern("M13Forward", M13Forward);
+    initPattern("M13Reverse", M13Reverse);
+    initPattern("AP4Oligo", AP4Oligo);
+    
+    initPattern("U19Oligo", U19Oligo);
+    initPattern("FLAGEpitope", FLAGEpitope);
+    initPattern("ExpressEpitope", ExpressEpitope);
+    initPattern("CMVPromoter","TAGTAATCAATTACGGGGTCATTAGTTCATAGCCCATATATGGAGTTCCGCGTTACATAACTTACGGTAAATGGCCCGCCTGGCTGACCGCCCAACGACCCCCGCCCATTGACGTCAATAATGACGTATGTTCCCATAGTAACGCCAATAGGGACTTTCCATTGACGTCAATGGGTGGAGTATTTACGGTAAACTGCCCACTTGGCAGTACATCAAGTGTATCATATGCCAAGTACGCCCCCTATTGACGTCAATGACGGTAAATGGCCCGCCTGGCATTATGCCCAGTACATGACCTTATGGGACTTTCCTACTTGGCAGTACATCTACGTATTAGTCATCGCTATTACCATGGTGATGCGGTTTTGGCAGTACATCAATGGGCGTGGATAGCGGTTTGACTCACGGGGATTTCCAAGTCTCCACCCCATTGACGTCAATGGGAGTTTGTTTTGGCACCAAAATCAACGGGACTTTCCAAAATGTCGTAACAACTCCGCCCCATTGACGCAAATGGGCGGTAGGCGTGTACGGTGGGAGGTCTATATAAGCAGAGCTGGTTTAGTGAACCGTCAG");
+}
+
+/**
+ * Description: Initializes a single pattern
+ * Side Effects: Will make pattern to-upper
+ */
+void initPattern(const char* name, const char* sequence)
+{
+    DNAViewer.geneticPatterns = realloc(DNAViewer.geneticPatterns, 
+        sizeof(struct GeneticPatternT) * DNAViewer.knownPatterns);
+    
+    struct GeneticPatternT* pattern = &DNAViewer.geneticPatterns[DNAViewer.knownPatterns - 1];
+    
+    strcpy(pattern->patternName, name);
+    strcpy(pattern->matchAcids, sequence);
+    
+    pattern->matchAcidLength = strlen(pattern->matchAcids);
+    
+    for(int index = 0; index < pattern->matchAcidLength; ++index) 
+        pattern->matchAcids[index] = toupper(pattern->matchAcids[index]);
+    
+    DNAViewer.knownPatterns++;
+}
+
+/**
+ * Given a letter determine if it's an amino acid
+ */
+const u_int8_t isAminoAcid(char value) 
 {
     int index = 0x00;
     for (; index < 4; ++index) {
@@ -20,14 +71,37 @@ const u_int8_t isAminoAcid(unsigned char value)
     return 0;
 }
 
-double pctT;
-double pctC;
-double pctG;
-double pctA;
-void calculateMetrics(void);
+void patternDetectionFirstPass()
+{    
+    for (int index = 0; index < DNAViewer.geneticDataSize; index++) 
+    {
+        char acid = DNAViewer.geneticData[index];
+        
+        for(int p; p < DNAViewer.knownPatterns; ++p)
+        {
+            struct GeneticPatternT* match = &DNAViewer.geneticPatterns[p];
+            match->match = 0x01;
+            for(int c = 0; c < match->matchAcidLength; ++c)
+            {
+                if (match->match)
+                    match->match = match->matchAcids[c] == acid;
+            }
+            
+            if (match->match) 
+            {
+                debug("Matched: \"%s\" @ Sequence#: %d", match->patternName, index);
+            }
+        }
+    }
+}
+
+/**
+ * Description: Calculates the percentage distribution for TCGAs
+ */
 void calculateMetrics() 
 {
-    int t = 0,c = 0, g = 0, a = 0;
+    double pctT, pctC, pctG, pctA;
+    int t = 0, c = 0, g = 0, a = 0;
     
     for (int index = 0; index < DNAViewer.geneticDataSize; index++) 
     {
@@ -85,11 +159,11 @@ const long readGeneticData()
 	rewind(fp);
     
 	// Allocate a chunk of memory that is exactly the size of the input file.
-	DNAViewer.geneticData = (unsigned char*) malloc(sizeof(unsigned char) * tmpFileSize);
-    DNAViewer.geneticDataMatchBuffer = (unsigned char*) malloc(sizeof(unsigned char) * tmpFileSize);
+	DNAViewer.geneticData = (char*) malloc(sizeof(unsigned char) * tmpFileSize);
+    DNAViewer.geneticDataMatchBuffer = (char*) malloc(sizeof(unsigned char) * tmpFileSize);
     
 	//  Make sure we didn't run out of memory.
-	if (DNAViewer.geneticData == NULL)
+	if (DNAViewer.geneticData == NULL || DNAViewer.geneticDataMatchBuffer == NULL)
 		doError("Out of memory.");
     
 	// Read genetic data from input file.

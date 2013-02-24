@@ -42,7 +42,7 @@ void graphics_display()
     
     glBegin(GL_LINE_STRIP);
     
-    for (index = slice * 10000; index < (slice * 10000) + 10000; ++index)
+    for (index = slice * 10000; index < (slice * 10000) + 10000 && (slice * 10000) + 10000 < DNAViewer.geneticDataSize; ++index)
     {        
         glVertex2f(Coord.x, Coord.y);
         
@@ -64,8 +64,7 @@ void graphics_display()
     }
     
     glEnd();
-    
-	// Flush
+
 	glFlush();
 }
 
