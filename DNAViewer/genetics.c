@@ -71,25 +71,35 @@ const u_int8_t isAminoAcid(char value)
     return 0;
 }
 
+/**
+ * Description: Quick hack towards sub-pattern detection.
+ */
 void patternDetectionFirstPass()
 {    
-    for (int index = 0; index < DNAViewer.geneticDataSize; index++) 
+    for (int index = 0; index < DNAViewer.geneticDataSize; index++)
     {
         char acid = DNAViewer.geneticData[index];
         
-        for(int p; p < DNAViewer.knownPatterns; ++p)
+        for(int p = 0; p < DNAViewer.knownPatterns; ++p)
         {
             GeneticPatternT* match = &DNAViewer.geneticPatterns[p];
+            
             match->match = 0x01;
-            for(int c = 0; c < match->matchAcidLength; ++c)
+            
+            debug("Debug: %d", match->matchAcidLength);
+            
+            for(int c = 0; c < match->matchAcidLength; c++)
             {
                 if (match->match)
+                {
                     match->match = match->matchAcids[c] == acid;
+                }
             }
             
-            if (match->match) 
+            if (match->match)
             {
-                debug("Matched: \"%s\" @ Sequence#: %d", match->patternName, index);
+                debug("Matched: \"%s\" @ Sequence#: %d", 
+                      match->patternName, index);
             }
         }
     }

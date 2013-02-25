@@ -17,6 +17,8 @@ int main (int argc, char ** argv)
     
     readGeneticData();
     
+    patternDetectionFirstPass();
+    
     glutPostRedisplay();
     glutMainLoop();
 
@@ -47,7 +49,7 @@ void initialize(int argc, char** argv)
     
     parseArgs();
     initPatterns();
-    patternDetectionFirstPass();
+
     graphics_init();
 }
 

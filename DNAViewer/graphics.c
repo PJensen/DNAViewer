@@ -36,8 +36,8 @@ void graphics_display()
     
     initCoord();
     
-    // Clear all pixels
 	glClear(GL_COLOR_BUFFER_BIT);
+    
 	glColor3f(1.0, 1.0, 1.0);
     
     glBegin(GL_LINE_STRIP);
@@ -46,7 +46,7 @@ void graphics_display()
     {        
         glVertex2f(Coord.x, Coord.y);
         
-        switch (DNAViewer.geneticData[index]) 
+        switch (DNAViewer.geneticData[index])
         {
             case T:
                 Coord.x++;
