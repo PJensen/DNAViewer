@@ -34,7 +34,32 @@ void initPatterns()
     initPattern("U19Oligo", U19Oligo);
     initPattern("FLAGEpitope", FLAGEpitope);
     initPattern("ExpressEpitope", ExpressEpitope);
-        
+    
+    initPattern("pcDNA 3.1 BGH Reverse primer", "TAGAAGGCACAGTCGAGGC"); 
+    initPattern("Sp6 sequencing primer", "ATTTAGGTGACACTATAG"); 
+    initPattern("pUC/M13(-21) forward primer", "TGTAAAACGACGGCCAGT"); 
+    initPattern("M13 reverse primer:", "CAGGAAACAGCTATGACC"); 
+    initPattern("pUC/M13(-47) forward primer", "CGCCAGGGTTTTCCCAGTCACGAC"); 
+    initPattern("KS sequencing primer", "CCTCGAGGTCGACGGTATCG"); 
+    initPattern("SK sequencing primer", "CGGCCGCTCTAGAACTAGTGGATC"); 
+    initPattern("mp18/pUC18 (-48) Reverse sequencing primer", "AGCGGATAACAATTTCACACAGGA"); 
+    initPattern("pCDM8 reverse primer", "CCTCTAGAGTCGCGGCCGCGACCTGCAG"); 
+    
+    initPattern("pGEX 5' primer", "GGGCTGGCAAGCCACGTTTGGTG"); 
+    initPattern("pGEX 3' primer", "CCGGGAGCTGCATGTGTCAGAGG"); 
+    initPattern("CMV immediate early gene forward primer", "GGTCTATATAAGCAGAGCTGGT"); 
+    initPattern("RSV long terminal repeat forward primer", "CGCCATTTGACCATTCA"); 
+    initPattern("GLprimer 1 (Clockwise)", "TGTATCTTATGGTACTGTAACTG"); 
+    initPattern("GLprimer 2 (Counterclockwise)", "CTTTATGTT TTT GGCGTCTTCCA"); 
+    initPattern("RV3 primer", "CTAGCAAAATAGGCTGTCCCC"); 
+    
+    initPattern("SV40F primer (clockwise)", "TGTTTCGGCGTGGGTATG"); 
+    initPattern("SV40R primer (counterclockwise)", "AGCGAGGAAGCGGAAGAG"); 
+    initPattern("p(dT)20V", "TTTTTTTTTTTTTTTTTTTT(A/C/G)"); 
+    initPattern("Firefly luciferase upstream primer", "GGATAGAATGGCGCCGG"); 
+    initPattern("EGFP-N sequencing primer", "CGTCGCCGTCCAGCTCGACCAG"); 
+    initPattern("EGFP-C sequencing primer", "CATGGTCCTGCTGGAGTTCGTG"); 
+    
     initPattern("CMVPromoter","TAGTAATCAATTACGGGGTCATTAGTTCATAGCCCATATATGGAGTTCCGCGTTACATAACTTACGGTAAATGGCCCGCCTGGCTGACCGCCCAACGACCCCCGCCCATTGACGTCAATAATGACGTATGTTCCCATAGTAACGCCAATAGGGACTTTCCATTGACGTCAATGGGTGGAGTATTTACGGTAAACTGCCCACTTGGCAGTACATCAAGTGTATCATATGCCAAGTACGCCCCCTATTGACGTCAATGACGGTAAATGGCCCGCCTGGCATTATGCCCAGTACATGACCTTATGGGACTTTCCTACTTGGCAGTACATCTACGTATTAGTCATCGCTATTACCATGGTGATGCGGTTTTGGCAGTACATCAATGGGCGTGGATAGCGGTTTGACTCACGGGGATTTCCAAGTCTCCACCCCATTGACGTCAATGGGAGTTTGTTTTGGCACCAAAATCAACGGGACTTTCCAAAATGTCGTAACAACTCCGCCCCATTGACGCAAATGGGCGGTAGGCGTGTACGGTGGGAGGTCTATATAAGCAGAGCTGGTTTAGTGAACCGTCAG");
     
     initPattern("Ampicillin", "atgagtattcaacatttccgtgtcgcccttattcccttttttgcggcattttgccttcctgtttttgctcacccagaaacgctggtgaaagtaaaagatgctgaagatcagttgggtgcacgagtgggttacatcgaactggatctcaacagcggtaagatccttgagagttttcgccccgaagaacgttttccaatgatgagcacttttaaagttctgctatgtggcgcggtattatcccgtgttgacgccgggcaagagcaactcggtcgccgcatacactattctcagaatgacttggttgagtactcaccagtcacagaaaagcatcttacggatggcatgacagtaagagaattatgcagtgctgccataaccatgagtgataacactgcggccaacttacttctgacaacgatcggaggaccgaaggagctaaccgcttttttgcacaacatgggggatcatgtaactcgccttgatcgttgggaaccggagctgaatgaagccataccaaacgacgagcgtgacaccacgatgcctgcagcaatggcaacaacgttgcgcaaactattaactggcgaactacttactctagcttcccggcaacaattaatagactggatggaggcggataaagttgcaggaccacttctgcgctcggcccttccggctggctggtttattgctgataaatctggagccggtgagcgtgggtctcgcggtatcattgcagcactggggccagatggtaagccctcccgtatcgtagttatctacacgacggggagtcaggcaactatggatgaacgaaatagacagatcgctgagataggtgcctcactgattaagcattggtaa");
@@ -59,6 +84,13 @@ void initPatterns()
     initPattern("tdTomato (RFP - dimer)", "atggtgagcaagggcgaggaggtcatcaaagagttcatgcgcttcaaggtgcgcatggagggctccatgaacggccacgagttcgagatcgagggcgagggcgagggccgcccctacgagggcacccagaccgccaagctgaaggtgaccaagggcggccccctgcccttcgcctgggacatcctgtccccccagttcatgtacggctccaaggcgtacgtgaagcaccccgccgacatccccgattacaagaagctgtccttccccgagggcttcaagtgggagcgcgtgatgaacttcgaggacggcggtctggtgaccgtgacccaggactcctccctgcaggacggcacgctgatctacaaggtgaagatgcgcggcaccaacttcccccccgacggccccgtaatgcagaagaagaccatgggctgggaggcctccaccgagcgcctgtacccccgcgacggcgtgctgaagggcgagatccaccaggccctgaagctgaaggacggcggccactacctggtggagttcaagaccatctacatggccaagaagcccgtgcaactgcccggctactactacgtggacaccaagctggacatcacctcccacaacgaggactacaccatcgtggaacagtacgagcgctccgagggccgccaccacctgttcctggggcatggcaccggcagcaccggcagcggcagctccggcaccgcctcctccgaggacaacaacatggccgtcatcaaagagttcatgcgcttcaaggtgcgcatggagggctccatgaacggccacgagttcgagatcgagggcgagggcgagggccgcccctacgagggcacccagaccgccaagctgaaggtgaccaagggcggccccctgcccttcgcctgggacatcctgtccccccagttcatgtacggctccaaggcgtacgtgaagcaccccgccgacatccccgattacaagaagctgtccttccccgagggcttcaagtgggagcgcgtgatgaacttcgaggacggcggtctggtgaccgtgacccaggactcctccctgcaggacggcacgctgatctacaaggtgaagatgcgcggcaccaacttcccccccgacggccccgtaatgcagaagaagaccatgggctgggaggcctccaccgagcgcctgtacccccgcgacggcgtgctgaagggcgagatccaccaggccctgaagctgaaggacggcggccgctacctggtggagttcaagaccatctacatggccaagaagcccgtgcaactgcccggctactactacgtggacaccaagctggacatcacctcccacaacgaggactacaccatcgtggaacagtacgagcgctccgagggccgccaccacctgttcctgtacggcatggacgagctgtacaagtaa");
     
     DNAViewer.knownPatterns--;
+    
+    for(int p = 0; p < DNAViewer.knownPatterns; ++p)
+    {
+        printf("\"%s\"\n\t\"%s\"\n\n", 
+               DNAViewer.geneticPatterns[p].patternName, 
+               DNAViewer.geneticPatterns[p].matchAcids);
+    }
 }
 
 /**
@@ -81,8 +113,10 @@ void initPattern(const char* name, const char* sequence)
     
     pattern->matchAcidLength = strlen(pattern->matchAcids);
     
-    for(int index = 0; index < pattern->matchAcidLength; ++index) 
+    for(int index = 0; index < pattern->matchAcidLength; ++index)
+    {
         pattern->matchAcids[index] = toupper(pattern->matchAcids[index]);
+    }
     
     DNAViewer.knownPatterns++;
 }
@@ -105,39 +139,13 @@ const u_int8_t isAminoAcid(char value)
  */
 void patternDetectionFirstPass()
 {    
-    for (int index = 0; index < DNAViewer.geneticDataSize; index++)
+    for(int p = 0; p < DNAViewer.knownPatterns; p++)
     {
-        char acid = DNAViewer.geneticData[index];
+        GeneticPatternT* ptn = &DNAViewer.geneticPatterns[p];
         
-        for(int p = 0; p < DNAViewer.knownPatterns; p++)
+        if (strstr(DNAViewer.geneticData, ptn->matchAcids) != NULL)
         {
-            GeneticPatternT* match = &DNAViewer.geneticPatterns[p];
-            
-            match->match = 0x01;
-            
-            for(int c = 0; c < match->matchAcidLength; c++)
-            {
-                if (match->match)
-                {
-                    match->match = match->matchAcids[c] == acid;
-                }
-                else 
-                {
-                    match->match = 0;
-                    
-                    break;
-                }
-            }
-            
-            if (match->match)
-            {
-                assert(match->patternName != NULL);
-                
-                debug("Matched: %s at DNA Sequence #: %d", 
-                      match->patternName, index);
-            }
-            
-            match->match = 1;
+            debug("Matched: \"%s\"", ptn->patternName);
         }
     }
 }

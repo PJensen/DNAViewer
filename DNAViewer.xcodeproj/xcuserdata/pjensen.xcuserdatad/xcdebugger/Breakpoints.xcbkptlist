@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "DNAViewer/genetics.c"
-         timestampString = "383447811.363464"
+         timestampString = "383450320.232823"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "204"
-         endingLineNumber = "204"
+         startingLineNumber = "212"
+         endingLineNumber = "212"
          landmarkName = "readGeneticData()"
          landmarkType = "7">
       </FileBreakpoint>
