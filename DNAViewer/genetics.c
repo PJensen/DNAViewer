@@ -22,6 +22,7 @@ void initPatterns()
         doError("Out of memory.");
     
     initPattern("HIS6", HIS6);
+    
     initPattern("T7Promoter", T7Promoter);
     initPattern("SP6Promoter", SP6Promoter);
     initPattern("T3Promoter", T3Promoter);
@@ -33,7 +34,18 @@ void initPatterns()
     initPattern("U19Oligo", U19Oligo);
     initPattern("FLAGEpitope", FLAGEpitope);
     initPattern("ExpressEpitope", ExpressEpitope);
+        
     initPattern("CMVPromoter","TAGTAATCAATTACGGGGTCATTAGTTCATAGCCCATATATGGAGTTCCGCGTTACATAACTTACGGTAAATGGCCCGCCTGGCTGACCGCCCAACGACCCCCGCCCATTGACGTCAATAATGACGTATGTTCCCATAGTAACGCCAATAGGGACTTTCCATTGACGTCAATGGGTGGAGTATTTACGGTAAACTGCCCACTTGGCAGTACATCAAGTGTATCATATGCCAAGTACGCCCCCTATTGACGTCAATGACGGTAAATGGCCCGCCTGGCATTATGCCCAGTACATGACCTTATGGGACTTTCCTACTTGGCAGTACATCTACGTATTAGTCATCGCTATTACCATGGTGATGCGGTTTTGGCAGTACATCAATGGGCGTGGATAGCGGTTTGACTCACGGGGATTTCCAAGTCTCCACCCCATTGACGTCAATGGGAGTTTGTTTTGGCACCAAAATCAACGGGACTTTCCAAAATGTCGTAACAACTCCGCCCCATTGACGCAAATGGGCGGTAGGCGTGTACGGTGGGAGGTCTATATAAGCAGAGCTGGTTTAGTGAACCGTCAG");
+    
+    initPattern("Ampicillin", "atgagtattcaacatttccgtgtcgcccttattcccttttttgcggcattttgccttcctgtttttgctcacccagaaacgctggtgaaagtaaaagatgctgaagatcagttgggtgcacgagtgggttacatcgaactggatctcaacagcggtaagatccttgagagttttcgccccgaagaacgttttccaatgatgagcacttttaaagttctgctatgtggcgcggtattatcccgtgttgacgccgggcaagagcaactcggtcgccgcatacactattctcagaatgacttggttgagtactcaccagtcacagaaaagcatcttacggatggcatgacagtaagagaattatgcagtgctgccataaccatgagtgataacactgcggccaacttacttctgacaacgatcggaggaccgaaggagctaaccgcttttttgcacaacatgggggatcatgtaactcgccttgatcgttgggaaccggagctgaatgaagccataccaaacgacgagcgtgacaccacgatgcctgcagcaatggcaacaacgttgcgcaaactattaactggcgaactacttactctagcttcccggcaacaattaatagactggatggaggcggataaagttgcaggaccacttctgcgctcggcccttccggctggctggtttattgctgataaatctggagccggtgagcgtgggtctcgcggtatcattgcagcactggggccagatggtaagccctcccgtatcgtagttatctacacgacggggagtcaggcaactatggatgaacgaaatagacagatcgctgagataggtgcctcactgattaagcattggtaa");
+    
+    initPattern("BGH polyA","TGTGCCTTCTAGTTGCCAGCCATCTGTTGTTTGCCCCTCCCCCGTGCCTTCCTTGACCCTGGAAGGTGCCACTCCCACTGTCCTTTCCTAATAAAATGAGGAAATTGCATCGCATTGTCTGAGTAGGTGTCATTCTATTCTGGGGGGTGGGGTGGGGCAGGACAGCAAGGGGGAGGATTGGGAAGACAATAGCAGGCATGCTGGGGATGCGGTGGGCTCTATGGC");
+    
+    initPattern("SV40 ORI", "CTGTGGAATGTGTGTCAGTTAGGGTGTGGAAAGTCCCCAGGCTCCCCAGCAGGCAGAAGTATGCAAAGCATGCATCTCAATTAGTCAGCAACCAGGTGTGGAAAGTCCCCAGGCTCCCCAGCAGGCAGAAGTATGCAAAGCATGCATCTCAATTAGTCAGCAACCATAGTCCCGCCCCTAACTCCGCCCATCCCGCCCCTAACTCCGCCCAGTTCCGCCCATTCTCCGCCCCATGGCTGACTAATTTTTTTTATTTATGCAGAGGCCGAGGCCGCCTCTGCCTCTGAGCTATTCCAGAAGTAGTGAGGAGGCTTTTTTGGAGGCCTAGGCTTTTGCAAAAAGCTC");
+    
+    initPattern("SV40 polyAr", "ACTTGTTTATTGCAGCTTATAATGGTTACAAATAAAGCAATAGCATCACAAATTTCACAAATAAAGCATTTTTTTCACTGCATTCTAGTTGTGGTTTGTCCAAACTCATCAATGTATCTTATCATGTCTGT");
+    
+    DNAViewer.knownPatterns--;
 }
 
 /**
@@ -80,13 +92,11 @@ void patternDetectionFirstPass()
     {
         char acid = DNAViewer.geneticData[index];
         
-        for(int p = 0; p < DNAViewer.knownPatterns; ++p)
+        for(int p = 0; p < DNAViewer.knownPatterns; p++)
         {
             GeneticPatternT* match = &DNAViewer.geneticPatterns[p];
             
             match->match = 0x01;
-            
-            debug("Debug: %d", match->matchAcidLength);
             
             for(int c = 0; c < match->matchAcidLength; c++)
             {
@@ -94,13 +104,23 @@ void patternDetectionFirstPass()
                 {
                     match->match = match->matchAcids[c] == acid;
                 }
+                else 
+                {
+                    match->match = 0;
+                    
+                    break;
+                }
             }
             
             if (match->match)
             {
-                debug("Matched: \"%s\" @ Sequence#: %d", 
+                assert(match->patternName != NULL);
+                
+                debug("Matched: %s at DNA Sequence #: %d", 
                       match->patternName, index);
             }
+            
+            match->match = 1;
         }
     }
 }
@@ -139,7 +159,7 @@ void calculateMetrics()
     
     assert(t + c + g + a == DNAViewer.geneticDataSize);
     
-    printf("Metrics: T(%.2f) C(%.2f) G(%.2f) A(%.2f)", pctT, pctC, pctG, pctA);
+    printf("\nMetrics: T(%.2f) C(%.2f) G(%.2f) A(%.2f)\n", pctT, pctC, pctG, pctA);
 }
 
 /**
