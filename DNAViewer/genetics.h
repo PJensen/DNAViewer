@@ -30,12 +30,12 @@ struct GeneticSequenceT {
     char *sequence;
 };
 
-struct GeneticPatternT {
+typedef struct  {
     char patternName[64];
     char matchAcids[1024];
     int matchAcidLength;
     unsigned int match;
-};
+} GeneticPatternT;
 
 void initPatterns(void);
 void patternDetectionFirstPass(void);

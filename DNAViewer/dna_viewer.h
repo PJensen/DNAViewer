@@ -32,7 +32,7 @@ struct DNAViewerT {
     size_t geneticDataSize;
     char fileName[255];
     int knownPatterns;
-    struct GeneticPatternT *geneticPatterns;
+    GeneticPatternT *geneticPatterns;
 };
 
 ;

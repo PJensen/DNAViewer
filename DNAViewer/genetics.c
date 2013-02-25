@@ -17,7 +17,7 @@ const char AMINO_ACID[4] = {'T', 'C', 'G', 'A'};
 void initPatterns() 
 {
     DNAViewer.knownPatterns = 1;
-    DNAViewer.geneticPatterns = malloc(sizeof(struct GeneticPatternT) * DNAViewer.knownPatterns);
+    DNAViewer.geneticPatterns = malloc(sizeof(GeneticPatternT) * DNAViewer.knownPatterns);
     if (DNAViewer.geneticPatterns == NULL)
         doError("Out of memory.");
     
@@ -43,9 +43,9 @@ void initPatterns()
 void initPattern(const char* name, const char* sequence)
 {
     DNAViewer.geneticPatterns = realloc(DNAViewer.geneticPatterns, 
-        sizeof(struct GeneticPatternT) * DNAViewer.knownPatterns);
+        sizeof(GeneticPatternT) * DNAViewer.knownPatterns);
     
-    struct GeneticPatternT* pattern = &DNAViewer.geneticPatterns[DNAViewer.knownPatterns - 1];
+    GeneticPatternT* pattern = &DNAViewer.geneticPatterns[DNAViewer.knownPatterns - 1];
     
     strcpy(pattern->patternName, name);
     strcpy(pattern->matchAcids, sequence);
@@ -79,7 +79,7 @@ void patternDetectionFirstPass()
         
         for(int p; p < DNAViewer.knownPatterns; ++p)
         {
-            struct GeneticPatternT* match = &DNAViewer.geneticPatterns[p];
+            GeneticPatternT* match = &DNAViewer.geneticPatterns[p];
             match->match = 0x01;
             for(int c = 0; c < match->matchAcidLength; ++c)
             {
