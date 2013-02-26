@@ -8,6 +8,12 @@
 
 #include "dna_viewer.h"
 
+GLfloat light_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
+GLfloat light_position[] = { 50.0, 50, 50, 125 };
+GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+GLfloat mat_shininess[] = { 50.0 };
+
+
 struct CoordT {
     int x;
     int y;
@@ -34,7 +40,7 @@ void graphics_display()
 {
     int index = 0x00;
     
-    initCoord();
+    // initCoord();
     
 	glClear(GL_COLOR_BUFFER_BIT);
     
@@ -70,18 +76,18 @@ void graphics_display()
 
 void graphics_display_3d()
 {
-    int index = 0x02;
+    int index = 0x02 * slice;
     
     initCoord();
     
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glColor3f(1.0, 1.0, 1.0);
     
     glPushMatrix();
 
-    glBegin(GL_TRIANGLE_STRIP);
+    glBegin(GL_LINE_STRIP);
     
-    for (; index < 1000; index += 2)
+    glColor4f(0.0, 0.0, 0.0, 1);
+    for (; index < (10000 * slice) + 100; index += 2)
     {
         char D[2] = "";
                 
@@ -156,14 +162,15 @@ void graphics_display_3d()
                 break;
         }
     
-        
+        vector.x *= 5;
+        vector.y *= 5;
+        vector.z *= 5;
+    
         Coord.x += vector.x;
         Coord.y += vector.y;
         Coord.z += vector.z;
         
         glVertex3i(Coord.x, Coord.y, Coord.z);
-        
-        // lutSolidSphere(1, 5, 5);
     }
     
     glEnd();
@@ -175,17 +182,26 @@ void graphics_display_3d()
 //    glVertex3i(10, 10, 20);
 //    
 //    glEnd();
-     
+     gluLookAt(150,150,150, Coord.x, Coord.y, Coord.z, 0, 0, 1);
+    
     glPopMatrix();
     
+     
+    
+    // glLoadIdentity();
+    
+    //gluLookAt(0, 0, 0, Coord.x, Coord.y, Coord.z, 0, 1, 0);
     glutSwapBuffers();
     glutPostRedisplay();
+    
+    // gluLookAt(50, 50, 50, 0, 0, 0, 0, 1, 0);
+    //
+    
     
     //glRotated(1, rand(), 0, 0);
     //glRotated(1, 0, rand(), 0);
     // glRotated(1, 0, 0, rand());
-    
-    
+
     
 }
 
@@ -201,10 +217,11 @@ void graphics_reshape(int w, int h)
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-    gluPerspective(60, w / h, 1, 200);
+    gluPerspective(30, w / h, 1, 20000);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(50, 50, 50, 0, 0, 0, 0, 1, 0);
+    
+    //gluLookAt(Coord.x, Coord.y, Coord.z,150,150,150, 0, 0, 1);
 }
 
 /**
@@ -242,8 +259,21 @@ void keyboard_func(unsigned char k, int x, int y)
  */
 void graphics_mouse(int b, int s, int x, int y)
 {
-	debug("click: (%d,%d) B:%d", x, y, b);
-    glRotated(1, rand(), 0, 0);
+	debug("click: (%d,%d) B:%d S: %d", x, y, b, s);
+    
+    switch (b) {
+        case 0:
+            glRotated(10, 1, 0, 0);
+            break;
+        case 1:
+            glRotated(10, 0, 1, 0);
+            break;
+        case 2:
+            glRotated(10, 0, 0, 1);
+            break;
+        default:
+            break;
+    }
 }
 
 /**
@@ -254,7 +284,7 @@ void graphics_init()
 {    
 	// glut initialization
 	glutInit(&DNAViewer.argc, DNAViewer.argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(GRAPHICS_WINDOW_SIZE);
 	glutInitWindowPosition(GRAPHICS_WINDOW_POSITION);
 	glutCreateWindow(GRAPHICS_WINDOW_TITLE);
@@ -271,9 +301,17 @@ void graphics_init()
     glutMouseFunc(graphics_mouse);
     glutDisplayFunc(graphics_display_3d);
     
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+    
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_DEPTH_TEST);
+    
+    GLfloat lmodel_ambient[] = { 1.2, 1.2, 1.2, 1.0 };
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);
 }
 
 /**
