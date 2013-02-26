@@ -37,7 +37,6 @@ int main (int argc, char ** argv)
  */
 void initialize(int argc, char** argv) 
 {
-    
 #if DEBUG
     char cwdBuffer[256];
     getcwd(cwdBuffer, 256);

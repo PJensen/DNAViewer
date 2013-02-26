@@ -33,6 +33,7 @@ struct DNAViewerT {
     char fileName[255];
     int knownPatterns;
     GeneticPatternT *geneticPatterns;
+    MatchedPatternT *matchedPatterns;
 };
 
 ;

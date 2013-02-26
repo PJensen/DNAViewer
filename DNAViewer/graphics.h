@@ -13,7 +13,7 @@
 #define GRAPHICS_CLEAR_COLOR 0.0,0.0,0.0,0.0
 #define GRAPHICS_WINDOW_SIZE 1000,1000
 #define GRAPHICS_WINDOW_POSITION 100,100
-#define GRAPHICS_ORTHO -100.0, 100.0, -100.0, 100.0, -100.0, 100.0
+#define GRAPHICS_ORTHO -10.0, 10.0, -10.0, 10.0, -10.0, 10.0
 
 #include <OpenGL/OpenGL.h>
 #include <OpenGL/glu.h>
@@ -25,5 +25,6 @@ void graphics_display(void);
 void graphics_reshape(int w, int h);
 void graphics_mouse(int b, int s, int x, int y);
 void keyboard_func(unsigned char k, int x, int y);
+void graphics_display_3d(void);
 
 #endif
